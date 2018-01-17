@@ -55,10 +55,9 @@ api_call.prototype.call = function (req, res, enduro_server) {
 				res.sendStatus(401)
 				throw new Error()
 			})
-			// removed juicebox pack from saving cms
-			// .then(() => {
-			// 	return juicebox.pack(requesting_user.username)
-			// }, () => { throw new Error() })
+			.then(() => {
+				return juicebox.pack("cms")
+			}, () => { throw new Error() })
 			.then(() => {
 
 				// re-renders enduro - essential to publishing the change
